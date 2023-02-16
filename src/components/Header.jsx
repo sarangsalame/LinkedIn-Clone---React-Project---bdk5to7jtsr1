@@ -9,7 +9,7 @@ import MessageIcon from '@material-ui/icons/Message';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import {Avatar} from '@material-ui/core'
 
-const Header = () => {
+const Header = ({userdata}) => {
   return (
     <div className='header'>
         <div className='header__left'>
@@ -29,7 +29,7 @@ const Header = () => {
             <HeaderOptions Icon={BusinessCenterIcon} title='Jobs'/>
             <HeaderOptions Icon={MessageIcon} title='Message'/>
             <HeaderOptions Icon={NotificationsIcon} title='Notification'/>
-            <HeaderOptions avatar={Avatar} title='Sarang'/>
+            <HeaderOptions avatar={Avatar} userdata={userdata} title={userdata.name}/>
         </div>
     
     </div>

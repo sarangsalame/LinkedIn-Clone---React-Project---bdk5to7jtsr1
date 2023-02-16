@@ -8,19 +8,36 @@ import CalendarToday from "@material-ui/icons/CalendarToday";
 import Assignment from "@material-ui/icons/Assignment";
 import Post from "./Post";
 
-const Feed = () => {
 
+const Feed = ({userdata}) => {
+  const [post, setPost]=useState([])
   const [input, setInput]=useState("")
   const submitPost=(e)=>{
       e.preventDefault();
-      alert(input)
+      let dateobj = new Date();
+      let date = {
+        hour:dateobj.getHours(),
+        minutes:dateobj.getMinutes(),
+        second:dateobj.getSeconds()
+      }
+      console.log(date)
+      setPost([...post, {
+        name:userdata.name,
+        discription:"",
+        message:input,
+        photoUrl:userdata.photoUrl,
+        timestamp:date
+      }])
+      
+      setInput('')
+      
   }
 
   return (
     <div className='feed'>
       <div className='feed__input'>
         <div className="feed__input_search">
-        <Avatar />
+        <Avatar src={userdata.photoUrl}/>
         <form onSubmit={submitPost}>
           <input type='text' placeholder='Start a post' onChange={(e)=>setInput(e.target.value)} />
           <input type='submit' />
@@ -46,7 +63,14 @@ const Feed = () => {
           </div>
         </div>
       </div>
-      <Post name="Sarang" discription="this is some discription" message="this is some message" photoUrl ='https://www.socialnetworkelite.com/hs-fs/hubfs/image2-17.jpg?width=1200&name=image2-17.jpg'/>
+      {
+        post.map((element, index)=>{
+          return (
+            <Post key={index} name={element.name} discription={element.discription} message={element.message} photoUrl={element.photoUrl}/>
+          )
+        })
+        
+      }
     </div>
   );
 };
