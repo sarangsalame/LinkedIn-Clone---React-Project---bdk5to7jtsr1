@@ -12,6 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "firebase": "^9.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
