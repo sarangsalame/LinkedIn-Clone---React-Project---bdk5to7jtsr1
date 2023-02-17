@@ -1,3 +1,6 @@
+View Project: [https://prismatic-lolly-ea5add.netlify.app/]
+
+
 # boilerplate-react-functional-public
 
 In this app we will be making a Word and Character counter app.
