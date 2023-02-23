@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import {Avatar} from '@material-ui/core'
 import MoreVert from '@material-ui/icons/MoreVert'
 import ThumbUp from '@material-ui/icons/ThumbUp'
@@ -7,6 +7,7 @@ import Share from '@material-ui/icons/Share'
 import Send from '@material-ui/icons/Send'
 import '../styles/post.css'
 const Post = ({name, discription, message, photoUrl}) => {
+  const [isliked, setIsliked] = useState(false);
   return (
     <div className='posts'>
         <div className='post__header'>
@@ -27,7 +28,7 @@ const Post = ({name, discription, message, photoUrl}) => {
             </div>
             <div className='post__footer'>
                 <div className='post__footer__option'>
-                    <ThumbUp/>
+                    <ThumbUp onClick={()=>{setIsliked(!isliked)}} style={{color:isliked?"blue":"black"}/>
                     <span>Like</span>
                 </div>
                 <div className='post__footer__option'>
